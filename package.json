@@ -1,0 +1,26 @@
+{
+  "name": "comicshop-fullstack-proyect",
+  "version": "1.0.0",
+  "description": "comicshop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "JorgeBlasEspejo",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "node-fetch": "^3.3.1",
+    "pg": "^8.11.1",
+    "puppeteer": "^19.11.1",
+    "sanitize-html": "^2.11.0"
+  },
+  "devDependencies": {
+    "jsdoc": "^4.0.2",
+    "nodemon": "^3.0.1"
+  }
+}
