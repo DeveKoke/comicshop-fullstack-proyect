@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+
 const comicSchema = new mongoose.Schema({
     title: {
         type: String,
