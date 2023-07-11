@@ -11,20 +11,17 @@ const comicSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    colection: {
+    serie: {
         type: String,
         required: true,
     },
-    character: {
-        type: String,
-        required: true,
-    },
+    character: String,
     pages: {
-        type: String,
+        type: Number,
         required: true,
     },
     price:{
-        type:Number,
+        type:String,
         require: true,
         },
     description:{
@@ -33,7 +30,7 @@ const comicSchema = new mongoose.Schema({
     },
 });
 
-const comic = new mongoose.model("comics", comicSchema);
+const comic = mongoose.model("comic", comicSchema);
 
 module.exports = comic;
 
