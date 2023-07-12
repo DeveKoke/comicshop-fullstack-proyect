@@ -28,6 +28,10 @@ const comicSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    novelty:{
+        type: Boolean,
+        required: true,
+    }
 });
 
 const comic = mongoose.model("comic", comicSchema);
