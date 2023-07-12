@@ -165,7 +165,7 @@ const createComic = async (req, res) => {
   };
 
 
-// POST -> http://localhost:3000/api/comics/:title
+// PUT -> http://localhost:3000/api/comics/:title
 // Editar campo novedad en un comic por título
   const updateComicNovelty = async (req, res) => {
     const { title } = req.params;
