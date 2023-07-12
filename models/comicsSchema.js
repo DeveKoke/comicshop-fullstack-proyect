@@ -11,29 +11,30 @@ const comicSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    colection: {
+    serie: {
         type: String,
         required: true,
     },
-    character: {
-        type: String,
-        required: true,
-    },
+    character: String,
     pages: {
-        type: String,
+        type: Number,
         required: true,
     },
     price:{
-        type:Number,
+        type:String,
         require: true,
         },
     description:{
         type: String,
         required: true,
     },
+    novelty:{
+        type: Boolean,
+        required: true,
+    }
 });
 
-const comic = new mongoose.model("comics", comicSchema);
+const comic = mongoose.model("comic", comicSchema);
 
 module.exports = comic;
 
