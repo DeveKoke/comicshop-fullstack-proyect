@@ -16,51 +16,99 @@
   }
 
 
-  // GET -> http://localhost:3000/api/comics/collection:serie
-  //  Encontrar comics por serie
-  const findComicFromSerie = async (req, res) => {
-    const { serie } = req.params;
-    try {
-      const comics = await Comic.find({ serie });
-      if (comics.length > 0) {
-        console.log(`Cómics de la colección "${serie}" encontrados`);
-        res.status(200).json(comics);
-      } else {
-        res.status(404).json({
-          msj: `No se encontraron cómics de la serie "${serie}".`
-        });
-      }
-    } catch (error) {
-      console.log(`ERROR: ${error}`);
-      res.status(500).json({
-        msj: `ERROR: ${error}`
+
+  // GET -> http://localhost:3000/api/comics:title
+//  Encontrar comics por nombre
+const findComicFromTitle = async (req, res) => {
+  const { title } = req.params;
+  try {
+    const comics = await Comic.find({ title },  '-_id -__v');
+    if (comics.length > 0) {
+      console.log(`Cómics de la colección "${title}" encontrados`);
+      res.status(200).json(comics);
+    } else {
+      res.status(404).json({
+        msj: `No se encontraron cómics de la title "${title}".`
       });
     }
-  };
+  } catch (error) {
+    console.log(`ERROR: ${error}`);
+    res.status(500).json({
+      msj: `ERROR: ${error}`
+    });
+  }
+};
 
 
-  // GET -> http://localhost:3000/api/character/:character
-  //  Encontrar comics por personaje
-  const findComicFromCharacter = async (req, res) => {
-    const { character } = req.params;
-    try {
-      const comics = await Comic.find({ character });
-      if (comics.length > 0) {
-        console.log(`Cómics de "${character}" encontrados`);
-        res.status(200).json(comics);
-      } else {
-        res.status(404).json({
-          msj: `No se encontraron cómics de la character "${character}".`
-        });
-      }
-    } catch (error) {
-      console.log(`ERROR: ${error}`);
-      res.status(500).json({
-        msj: `ERROR: ${error}`
+
+
+// GET -> http://localhost:3000/api/comics/collection:serie
+//  Encontrar comics por serie
+const findComicFromSerie = async (req, res) => {
+  const { serie } = req.params;
+  try {
+    const comics = await Comic.find({ serie },  '-_id -__v');
+    if (comics.length > 0) {
+      console.log(`Cómics de la colección "${serie}" encontrados`);
+      res.status(200).json(comics);
+    } else {
+      res.status(404).json({
+        msj: `No se encontraron cómics de la serie "${serie}".`
       });
     }
-  };
+  } catch (error) {
+    console.log(`ERROR: ${error}`);
+    res.status(500).json({
+      msj: `ERROR: ${error}`
+    });
+  }
+};
 
+
+
+// GET -> http://localhost:3000/api/character/:character
+//  Encontrar comics por personaje
+const findComicFromCharacter = async (req, res) => {
+  const { character } = req.params;
+  try {
+    const comics = await Comic.find({ character },  '-_id -__v');
+    if (comics.length > 0) {
+      console.log(`Cómics de "${character}" encontrados`);
+      res.status(200).json(comics);
+    } else {
+      res.status(404).json({
+        msj: `No se encontraron cómics de la character "${character}".`
+      });
+    }
+  } catch (error) {
+    console.log(`ERROR: ${error}`);
+    res.status(500).json({
+      msj: `ERROR: ${error}`
+    });
+  }
+};
+
+
+  // GET -> http://localhost:3000/api/novelties
+//  Encontrar Novedades
+const findNovelties = async (req, res) => {
+  try {
+    const comics = await Comic.find({ novelty:true },  '-_id -__v');
+    if (comics.length > 0) {
+      res.status(200).json(comics);
+    } else {
+      res.status(404).json({
+        msj: `No se encontraron los comics de novedades.`
+      });
+    }
+  } catch (error) {
+    console.log(`ERROR: ${error}`);
+    res.status(500).json({
+      msj: `ERROR: ${error}`
+    });
+  }
+};
+  
 
 
 // POST -> http://localhost:3000/api/comics
@@ -102,7 +150,7 @@ const createComic = async (req, res) => {
   };    
 
 
-// POST -> http://localhost:3000/api/comics
+// PUT -> http://localhost:3000/api/comics
 // Editar campos en todos los comics
   const updateAllComics = async (req, res) => {
     const { fieldsToUpdate } = req.body;
@@ -138,10 +186,12 @@ const createComic = async (req, res) => {
   };
 
     module.exports =  {
-      createComic,
       getAllComics,
+      findComicFromTitle,
+      findNovelties,
       findComicFromSerie,
       findComicFromCharacter,
+      createComic,
       updateAllComics,
       updateComicNovelty
     };
