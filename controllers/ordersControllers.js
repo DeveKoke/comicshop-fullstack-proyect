@@ -36,3 +36,13 @@ const createOrder = async (req, res) => {
   module.exports =  {
     createOrder
   };
+
+  // {
+//   "user_name": "Pepito",
+//   "user_lastname": "Pérez González",
+//   "adress": "calle toledo, 2, piso 3A",
+//   "postalCode": 28031,
+//   "products":[{"title": "Los cuatro Fantásticos 9. Correr.",
+//     "price":"14.90"
+//   }]
+// }

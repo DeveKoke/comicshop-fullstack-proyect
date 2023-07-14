@@ -1,0 +1,22 @@
+// html, body {
+//   margin: 0;
+//   padding: 0;
+//   height: 100%;
+// }
+
+body {
+margin: 0;
+padding: 0;
+}
+h1{
+  letter-spacing: 4px;
+  font-size: 3.7em;
+  text-align: center;
+  background-color: $main-color-mostaza;
+  font-family: 'Bangers';
+  margin: .3em 0;
+  padding: .3em 0;
+}
+h4{
+  font-size: 1.4em;
+}

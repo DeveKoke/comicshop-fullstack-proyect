@@ -1,0 +1,22 @@
+@import './../utils/variables.scss';
+
+.sliderContainer{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    // white-space: nowrap; 
+    overflow-x: scroll;
+    margin: auto ;
+}
+.sliderCard{
+    background-color: $main-color-mostaza ;
+    border-radius: 4px;
+    padding: 0 1.5em;
+margin: 0 .7em;
+width: 25%;
+    img{
+        // max-width: 50%;
+        // min-width: 45%;
+        max-height: 18em;
+    }
+}

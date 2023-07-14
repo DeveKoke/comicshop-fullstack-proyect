@@ -16,29 +16,27 @@
   }
 
 
-
-  // GET -> http://localhost:3000/api/comics:title
+  // GET -> http://localhost:3000/api/comics/:title
 //  Encontrar comics por nombre
-const findComicFromTitle = async (req, res) => {
-  const { title } = req.params;
-  try {
-    const comics = await Comic.find({ title },  '-_id -__v');
-    if (comics.length > 0) {
-      console.log(`Cómics de la colección "${title}" encontrados`);
-      res.status(200).json(comics);
-    } else {
-      res.status(404).json({
-        msj: `No se encontraron cómics de la title "${title}".`
-      });
-    }
-  } catch (error) {
-    console.log(`ERROR: ${error}`);
-    res.status(500).json({
-      msj: `ERROR: ${error}`
-    });
-  }
-};
-
+// const findComicFromTitle = async (req, res) => {
+//   const { title } = req.query;
+//   try {
+//     const comics = await Comic.find({ title },  '-_id -__v');
+//     if (comics.length > 0) {
+//       console.log(`Cómics de la colección "${title}" encontrados`);
+//       res.status(200).json(comics);
+//     } else {
+//       res.status(404).json({
+//         msj: `No se encontraron cómics de la title "${title}".`
+//       });
+//     }
+//   } catch (error) {
+//     console.log(`ERROR: ${error}`);
+//     res.status(500).json({
+//       msj: `ERROR: ${error}`
+//     });
+//   }
+// };
 
 
 
@@ -124,10 +122,10 @@ const createComic = async (req, res) => {
         description,
         novelty
     } = req.body;
-    if (!title || !img || !serie || !pages || !price || !description || !novelty) {
+    if (!title || !img || !serie || !pages || !price || !description) {
       return res
         .status(400)
-        .json({ error: "Los campos título, imagen, serie, páginas, precio y descripción son obligatorios." });
+        .json({ error: "Los campos título, imagen, serie, páginas, precio, descripción y novelty son obligatorios." });
     }
     try {
       const newComic = await Comic.create({
@@ -185,13 +183,67 @@ const createComic = async (req, res) => {
     }
   };
 
+
+
+  // http://localhost:3000/api/comics
+  // const findComics = async (req, res) => {
+  //   const valorBusqueda = req.params.valor; // Obtener el valor introducido al final de la URL
+
+  // try {
+  //   const comics = await Comic.find({
+  //     $or: [
+  //       { title: { $regex: valorBusqueda, $options: "i" } }, // Coincidencia insensible a mayúsculas y minúsculas en el campo "title"
+  //       { serie: { $regex: valorBusqueda, $options: "i" } }, // Coincidencia insensible a mayúsculas y minúsculas en el campo "serie"
+  //       { character: { $regex: valorBusqueda, $options: "i" } } // Coincidencia insensible a mayúsculas y minúsculas en el campo "character"
+  //     ]
+  //   });
+
+  //   res.json(comics);
+  // } catch (error) {
+  //   console.error(error);
+  //   res.status(500).json({ error: "Ocurrió un error al buscar los comics." });
+  // }
+  // };
+  
+
+
+  const findComics = async (req, res) => {
+    const valorBusqueda = req.params.valor; // valor introducido al final de la URL
+  
+    const page = parseInt(req.query.page) || 1;  //para que empiece en página 1
+    const limit = 3; 
+    const skipIndex = (page - 1) * limit;
+  
+    try {
+      const comics = await Comic.find({
+        $or: [
+          { title: { $regex: valorBusqueda, $options: "i" } }, // Opción para ignorar mayúsculas y minúsculas en el campo de búsqueda
+          { serie: { $regex: valorBusqueda, $options: "i" } },
+          { character: { $regex: valorBusqueda, $options: "i" } }, 
+        ],
+      })
+        .skip(skipIndex)
+        .limit(limit);
+  
+      res.json(comics);
+    } catch (error) {
+      console.error(error);
+      res
+        .status(500)
+        .json({ error: "Ocurrió un error al buscar los comics." });
+    }
+  };
+  
+
+
     module.exports =  {
       getAllComics,
-      findComicFromTitle,
+      // findComicFromTitle,
       findNovelties,
       findComicFromSerie,
       findComicFromCharacter,
       createComic,
       updateAllComics,
-      updateComicNovelty
+      updateComicNovelty,
+      findComics
     };
