@@ -59,7 +59,7 @@ const Results = () => {
     <article>
         <div className="pagination">
 
-          <img className="arrowsResults" src="assets/left arrow.png" alt="botón izquierda" onClick={goToPreviousPage} disabled={currentPage === 1} />
+          <img className="arrowsResults" src="assets/left-arrow.png" alt="botón izquierda" onClick={goToPreviousPage} disabled={currentPage === 1} />
           <img className="arrowsResults" src="assets/right-arrow.png" alt="botón derecha" onClick={goToNextPage} disabled={!hasNextPage}/>
           {/* <button >Anterior</button>
           <button  >Siguiente</button> */}

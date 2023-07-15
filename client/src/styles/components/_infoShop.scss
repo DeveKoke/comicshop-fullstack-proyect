@@ -1,0 +1,148 @@
+@import './../utils/variables.scss';
+
+.infoShopWrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-family: Labrada;
+    background: linear-gradient(180deg,$main-light-background-color 0%, $main-light-background-color 100%), url(../../../public/assets/thunder-bolt-seamless-background_6997-964.jpg);
+    background-blend-mode:   hard-light;
+    background-size:  contain;
+    // border: 10% solid $main-color-mostaza
+}
+.solicitadosWrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 1em;
+    height: auto;
+}
+.solicitadosCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1em 1.2em;
+    max-width: 22em;
+    min-width: 22em;
+    border-radius: 9px;
+  border: solid 16px $main-color-mostaza;
+
+    img{
+        max-width: inherit;
+        height: 15em;
+    }
+    h3{
+        background-color: $main-orange-color ;
+        font-family: Bangers;
+        letter-spacing: 3px;
+        padding: 4px 0 4px 15px;
+        font-size: 1.7em;
+        margin: 0;    }
+ 
+    .MyF{
+        font-size: .6;
+    }
+}
+.infoShopBox{
+border-radius: 5px;
+}
+.horarioBox{
+    padding: 1em;
+    background-color: $second-color-mostaza;
+    width: 37em;
+}
+.DondeEstamos{
+    padding: 1em;
+    background-color: $second-color-mostaza;
+    margin-top: 1em;
+}
+
+
+
+@media screen and (max-width: 1498px){
+    .infoShopWrapper{
+     flex-wrap: wrap;
+    }
+    .infoShopBox{
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        padding-top: 1em;
+        width: 100%;
+    }
+    .horarioBox, .DondeEstamos{
+        margin: 0 1em;
+        width: 36em;
+    }
+    .DondeEstamos{
+        margin-top: 0;
+    }
+
+    .map{
+        height: 600px;
+        width: 100%;
+    }
+ }
+ @media screen and (max-width: 880px){
+    .infoShopWrapper{
+     flex-wrap: wrap;
+    }
+    .infoShopBox{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        width: 95%;
+    }
+    .horarioBox, .DondeEstamos{
+        margin: 0 1em;
+        width: 36em;
+    }
+    .DondeEstamos{
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+ }
+ @media screen and (max-width: 660px){
+    .infoShopWrapper{
+     flex-wrap: wrap;
+    }
+    .infoShopBox{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+    }
+    .horarioBox, .DondeEstamos{
+        margin: 0 1em;
+        width: 90%;
+    }
+    .DondeEstamos{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        h2{
+            width: 100%;        
+        }
+    }
+    .map{
+        height: 500px;
+        width:500px;
+        margin: 0 auto;
+    }
+ }
+ @media screen and (max-width: 615px){
+
+    .map{
+        width:450px;
+    }
+ }
+ @media screen and (max-width: 500px){
+
+    .map{
+        width:380px;
+    }
+ }

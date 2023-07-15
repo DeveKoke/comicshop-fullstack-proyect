@@ -10,8 +10,8 @@ const ComicList = ({ title, img, pages, price, description }) => {
     <div className="comicCard" onClick={() => setFlip(!flip)}>
         <img src={img} alt={`comic ${title}`} />
         <p className="comicCard_title">{title}</p>
-        <p className="comicCard_title">{pages} páginas</p>
-        <p className="comicCard_title">{price}€</p>
+        <p className="comicCard_pages">{pages} páginas</p>
+        <p className="comicCard_price">{price}€</p>
   </div>
   <div className="comicCard descriptionFlex" onClick={() => setFlip(!flip)}>
       <h4>Descripción: </h4>

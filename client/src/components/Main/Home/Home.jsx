@@ -29,13 +29,18 @@ const Home = () => {
 
 
   return (
-    <section >
-      <h2>NOVEDADES</h2>
-      <article className='sliderContainer'>
-          {printNovelties()} 
-      </article>
+    <>
+      <section className='sectionNovelties'>
+        <h2>ÚLTIMAS NOVEDADES</h2>
+        <img src="/assets/NicePng_explotion-png_1023015.png" alt="" className="imgTitleResults" />
+        <article className='sliderContainer'>
+            {printNovelties()} 
+        </article>
+      </section>
+      <section className='infoShopWrapper'>
         <InfoShop />
-    </section>
+      </section>
+    </>
   );
 };
 

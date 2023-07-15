@@ -10,7 +10,6 @@
     padding: .5% 0;
     margin:4%;
     width: 18em;
-    border: solid grey 3px;
     min-height: 29.5em;
     cursor: pointer;
 
@@ -25,7 +24,21 @@
     font-weight: bolder;
     font-size: 1.5em;
     width: 80%;
-    margin: 10px 0;
+    margin: 10px 0 0;
+    text-align: center;
+}
+.comicCard_pages{
+    font-family:  Labrada;
+    font-size: 1.3em;
+    width: 80%;
+    margin: 0;
+    text-align: center;
+}
+.comicCard_price{
+    font-family:  Labrada;
+    font-size: 1.4em;
+    width: 80%;
+    margin: 12px 0 5;
     text-align: center;
 }
 

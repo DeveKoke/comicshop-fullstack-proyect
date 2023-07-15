@@ -7,7 +7,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    background: linear-gradient(180deg,$main-background-color 0%, $main-background-color 100%), url(../../../public/assets/thunder-bolt-seamless-background_6997-964.jpg);
+    background: linear-gradient(180deg,$main-light-background-color 0%, $main-light-background-color 100%), url(../../../public/assets/thunder-bolt-seamless-background_6997-964.jpg);
     background-blend-mode:   hard-light;
     background-size:  contain;
     border-top: grey solid 5px;
@@ -18,10 +18,10 @@
 }
 .imgTitleResults{
     display: block;
-    margin-top: -10em;
+    margin-top: -9em;
     margin-left: 1.5em;
     position: absolute;
-    width: 16rem;
+    width: 14rem;
 }
 .pagination{
     display: flex;

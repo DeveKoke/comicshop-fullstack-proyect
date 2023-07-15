@@ -12,12 +12,12 @@ const Search = () => {
   }
 
   return (
-    <article>
-      <form>
-          <input type="text" name="search" onChange={handleChange}/>
-<Link to={"/results"}>
-<input type="submit" value="Buscar"  /> 
-</Link>
+    <article >
+      <form className="searchBar">
+          <input type="text" name="search" onChange={handleChange} placeholder="Búsqueda"/>
+          <Link to={"/results"}>
+          <input type="submit" value="BUSCAR"  /> 
+          </Link>
       </form>
     </article>
   
