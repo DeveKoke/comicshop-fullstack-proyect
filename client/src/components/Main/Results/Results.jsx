@@ -1,5 +1,6 @@
 import { useEffect, useContext, useState } from "react";
 import { SearchContext } from "../../../context/SearchContext";
+import { LinkContext } from "../../../context/LinkContext";
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import ComicCard from "./ComicCard/ComicCard";
@@ -7,22 +8,23 @@ import ComicCard from "./ComicCard/ComicCard";
 const Results = () => {
   
   const {searchValue} = useContext(SearchContext);
+  const {link} = useContext(LinkContext);
   const [comicList, setComicList] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
   const [currentPage, setCurrentPage] = useState(1); // Estado para rastrear la página actual
 
-  const url = `api/comics/${searchValue}?page=${currentPage}`;
-  console.log(searchValue);
+  const url = `api/comics/${searchValue || link}?page=${currentPage}`;
+
   useEffect(() =>{
 
-    if(searchValue.length>0){
+    if(searchValue.length>0 || link.length>0){
       const getComicsbyName = async () => {
         await axios.get(url).then((response) => {
           setComicList(response.data);
         })
         .catch((error) => {
           if ( error.response.status === 404) {
-            setErrorMessage(`No se pudo encontrar comics sobre "${searchValue}". Por favor, prueba otro nombre`);
+            setErrorMessage(`No se pudo encontrar comics sobre "${searchValue || link}". Por favor, prueba otro nombre`);
             setTimeout(() => {
               setErrorMessage('');
             }, 5000); 
@@ -32,7 +34,7 @@ const Results = () => {
       getComicsbyName();
     }
     
-  }, [searchValue, currentPage])
+  }, [searchValue, link, currentPage])
   
   const printComics = () => comicList.map(item => <ComicCard title={item.title} img={item.img} pages={item.pages} price={item.price} description={item.description} key={uuidv4()} />)
   
@@ -54,7 +56,7 @@ const Results = () => {
 
   return (
 <section className="resultsContainer">
-    <h1>{searchValue.toUpperCase()}</h1>  
+    <h1>{searchValue.toUpperCase() || link.toUpperCase()}</h1>  
     <img src="/assets/NicePng_explotion-png_1023015.png" alt="" className="imgTitleResults" />
     <article>
         <div className="pagination">

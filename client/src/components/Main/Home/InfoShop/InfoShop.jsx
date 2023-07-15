@@ -1,41 +1,53 @@
+import { LinkContext } from "../../../../context/LinkContext";
+import { useContext } from "react";
+import {Link} from "react-router-dom";
+
+
 const InfoShop = () => {
+
+  const {setLink} = useContext(LinkContext);
+  const handleClick = (name) =>{
+    setLink(name)
+  }
+
+
   return (
   <>
     <article>
       <h2>LOS MÁS SOLICITADOS</h2>
       <div className="solicitadosWrapper">
-        <div className="solicitadosCard">
+        <Link to="/results"><div className="solicitadosCard">
           <h3>NARUTO</h3>
-          <img src="/assets/Naruto.jpg" alt="" />
-        </div>
-        <div className="solicitadosCard">
+           <img src="/assets/Naruto.jpg" alt="Naruto" onClick={() => handleClick("Naruto")} /> 
+        </div></Link>
+        <Link to="/results"><div className="solicitadosCard">
           <h3>BATMAN</h3>
-          <img src="/assets/Batman1.jpg" alt="" />
-        </div>
-        <div className="solicitadosCard">
+          <img src="/assets/Batman1.jpg" alt="Batman" onClick={() => handleClick("Batman")} />
+        </div></Link>
+        <Link to="/results"><div className="solicitadosCard">
           <h3>SPIDERMAN</h3>
-          <img src="/assets/Spidey.jpg" alt="" />
-        </div>
-        <div className="solicitadosCard">
+          <img src="/assets/Spidey.jpg" alt="spiderman" onClick={() => handleClick("Spiderman")} />
+        </div></Link>
+        <Link to="/results"><div className="solicitadosCard">
           <h3>DRAGON BALL</h3>
-          <img src="/assets/Dragon.jpg" alt="" />
-        </div>
-        <div className="solicitadosCard">
+          <img src="/assets/Dragon.jpg" alt="Dragon Ball" onClick={() => handleClick("Dragon Ball")} />
+        </div></Link>
+        <Link to="/results"><div className="solicitadosCard">
           <h3>SUPERMAN</h3>
-          <img src="/assets/Superman1.jpg" alt="" />
-        </div>
-        <div className="solicitadosCard">
+          <img src="/assets/Superman1.jpg" alt="Superman" onClick={() => handleClick("Superman")} />
+        </div></Link>
+        <Link to="/results"><div className="solicitadosCard">
           <h3 className="MyF">MORTADELO Y FILEMON</h3>
-          <img src="/assets/MyF.jpg" alt="" />
-        </div>
-        <div className="solicitadosCard">
+          <img src="/assets/MyF.jpg" alt="Mortadelo y Filemón" onClick={() => handleClick("Mortadelo y Filemón")} />
+        </div></Link>
+        <Link to="/results"><div className="solicitadosCard">
           <h3>ONE PIECE</h3>
-          <img src="/assets/One_piece.jpg" alt="" />
-        </div>
-        <div className="solicitadosCard">
+          <img src="/assets/One_piece.jpg" alt="One Piece" onClick={() => handleClick("One Piece")} />
+        </div></Link>
+        <Link to="/results"><div className="solicitadosCard">
           <h3>WALKING DEAD</h3>
-          <img src="/assets/WKD.jpg" alt="" />
-        </div>
+          <img src="/assets/WKD.jpg" alt="Walking Dead" onClick={() => handleClick("Walking")} />
+        </div></Link>
       </div>
     </article>
     <article className="infoShopBox">
@@ -70,10 +82,10 @@ const InfoShop = () => {
         <h2>¿Dónde estamos?</h2>
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2517.379841635478!2d-3.7053867694284635!3d40.42590117061806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2ses!4v1689420383532!5m2!1sen!2ses" 
         width="600" height="370" className="map"
-        style={{ border: 0 }} 
-        allowfullscreen="" 
+        style={{ border: 0 }}  
         loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+        // referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
     </article>
 
