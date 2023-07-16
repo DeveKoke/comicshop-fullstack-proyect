@@ -21,7 +21,9 @@
     "mongoose": "^7.3.2",
     "node-fetch": "^3.3.1",
     "nuka-carousel": "^6.0.3",
-    "sanitize-html": "^2.11.0"
+    "sanitize-html": "^2.11.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
     "concurrently": "^8.2.0",

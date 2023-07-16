@@ -1,0 +1,138 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Comic Shop",
+    "description": "This API is in charge of managing the information from the Comic City Madrid database, a fictitious online store. The API is responsible for storing various comic products to be able to display on the website of said store. With this API, we will be able to display any comic from the database by making an http GET call by title, by series or by character name",
+    "termsOfService": "http://swagger.io/terms/",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://localhost:3000/api/"
+    },
+    "version": "1.0.11"
+  },
+  "tags": [
+    {
+      "name": "comics",
+      "description": "all comics",
+      "externalDocs": {
+        "description": "Find all comics from data base",
+        "url": "http://localhost:3000/api/comics"
+      }
+    }
+  ],
+  "paths": {
+    "/comics": {
+      "post": {
+        "tags": [
+          "comics"
+        ],
+        "description": "Add a new comic to data base",
+        "requestBody": {
+          "description": "Create a new comic in data base",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": ""
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BodyComic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "error - Los campos título, imagen, serie, páginas, precio, descripción y novelty son obligatorios."
+          }
+        }
+      }
+    },
+    "/comics/produtcts/:title": {
+      "get": {
+        "tags": [
+          "comics"
+        ],
+        "summary": "Finds all comics from data base",
+        "description": "Finds all comics from data base searching by title",
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Status values that need to be considered for filter",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "available"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BodyComic"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No se encontraron cómics con título"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BodyComic": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "Maus"
+          },
+          "img": {
+            "type": "string",
+            "example": "https://upload.wikimedia.org/wikipedia/en/7/7d/Maus_%28volume_1%29_cover.jpg"
+          },
+          "serie": {
+            "type": "string",
+            "example": "Clasicos"
+          },
+          "character": {
+            "type": "string",
+            "example": null
+          },
+          "pages": {
+            "type": "integer",
+            "example": 132
+          },
+          "description": {
+            "type": "string",
+            "example": "Maus, often published with the subtitle A Survivor's Tale, is a graphic novel by American cartoonist Art Spiegelman, serialized from 1980 to 1991."
+          },
+          "novelty": {
+            "type": "boolean",
+            "example": false
+          }
+        },
+        "xml": {
+          "name": "order"
+        }
+      }
+    }
+  }
+}

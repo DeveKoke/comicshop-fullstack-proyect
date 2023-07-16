@@ -8,6 +8,11 @@ const port = "3000";
 
 app.use(express.json()); // Habilitar tipo de dato a recibir
 
+// Documentation api Swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
+
 const comicsRoutes = require("./routes/comicsRoutes");
 const ordersRoutes = require("./routes/ordersRoutes");
 
@@ -16,6 +21,8 @@ const ordersRoutes = require("./routes/ordersRoutes");
 app.use("/api", comicsRoutes);
 app.use("/orders", ordersRoutes)
 
+// Documentation api Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(error404); // Para ruta no encontrada (404)
 
