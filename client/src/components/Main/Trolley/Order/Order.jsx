@@ -1,47 +1,49 @@
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState,useContext } from "react";
 import axios from 'axios';
+import { TrolleyContext } from '../../../../context/TrolleyContext';
 
 
 
-const Order = ({title, price}) => {
-  const [productData, setProductData] = useState({});
+const Order = () => {
+
+  const [orderData, setOrderData] = useState({});
   const [orderSuccess, setOrderSuccess] = useState(false); 
 
+  const {itemList} = useContext(TrolleyContext);
+  const productData = itemList.map(item => ({
+    titleProduct: item.title,
+    price: item.price
+  }));
 
-  const {register, formState:{errors}, handleSubmit} = useForm();
-  
-  const regexPostalCode = /^(0[1-9]|[1-4]\d|5[0-2])\d{3}$/;
-  const regexName = /^[^-@*]+$/;
-  const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const url = 'orders/neworder';
-
+  
   const userData = (data) => {
     const { user_name, user_lastname, email, adress, postalCode } = data;
-    setProductData({
+    setOrderData({
       user_name: user_name,
       user_lastname:user_lastname,
       email: email,
       adress: adress,
       postalCode: postalCode,
-      products:[{title:{title},
-        price:{price}
-      }]
+      products:productData
     })
 
-    axios.post(url, productData)
+    axios.post(url, orderData)
     .then(() => {
       setOrderSuccess(true); // Actualiza el estado para mostrar el mensaje de éxito
     })
       .catch(error => {
-        error.status(500).json({ error: "Internal server error" });
+        error.status(500);
       });
-  }
-
- 
-
-
-
+    }
+    console.log(orderData);
+    
+    
+    const {register, formState:{errors}, handleSubmit} = useForm();
+    const regexPostalCode = /^(0[1-9]|[1-4]\d|5[0-2])\d{3}$/;
+    const regexName = /^[^-@*]+$/;
+    const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   return (
     <>
@@ -79,7 +81,7 @@ const Order = ({title, price}) => {
         } )}  />
               {errors.postalCode?.type === 'pattern' && <p className="requiredMessage">Código postal no válido. Introduce un código postal válido en territorio español </p>}
 
-      <input type="submit" />
+      <input type="submit" value="REALIZAR PEDIDO" />
     </form>
 
     {orderSuccess && (<p>Tu pedido se realizó correctamente</p>)}

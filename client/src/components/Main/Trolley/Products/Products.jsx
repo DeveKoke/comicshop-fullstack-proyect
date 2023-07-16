@@ -16,7 +16,7 @@ const Products = ({ title, img, price }) => {
     <div className="productContainer">
       <img src={img} alt="imagen producto" />
       <p>{title}</p>
-      <span>{price}</span>
+      <span>{price} €</span>
       <button onClick={handleDelete}>ELIMNAR</button>
     </div>
     

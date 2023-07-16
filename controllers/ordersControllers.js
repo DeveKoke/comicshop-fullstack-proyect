@@ -8,11 +8,12 @@ const createOrder = async (req, res) => {
         const {
         user_name,
         user_lastname,
+        email,
         adress,
         postalCode,
         products
         } = req.body;
-        if (!user_name || !user_lastname || !adress || !postalCode) {
+        if (!user_name || !user_lastname || !email  || !adress || !postalCode) {
         return res
             .status(400)
             .json({ error: "Los campos user_name, user_lastname, adress, postalCode y products son requeridos." });
@@ -20,6 +21,7 @@ const createOrder = async (req, res) => {
         const newOrder = await Order.create({
             user_name,
             user_lastname,
+            email,
             adress,
             postalCode,
             products

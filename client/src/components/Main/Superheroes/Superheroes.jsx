@@ -1,12 +1,16 @@
 import { LinkContext } from "../../../context/LinkContext";
+import { SearchContext } from "../../../context/SearchContext"
 import { useContext } from "react";
 import {Link} from "react-router-dom";
 
 const Superheroes = () => {
 
   const {setLink} = useContext(LinkContext);
+  const { setSearchValue } = useContext(SearchContext);
+
   const handleClick = (name) =>{
-    setLink(name)
+    setLink(name);
+    setSearchValue(name);
   }
 
   return (

@@ -44,9 +44,9 @@ const ComicList = ({ title, img, pages, price, description }) => {
   },[itemData])
   
   
-  console.log(item);
-  console.log(itemData);
-  console.log(itemList);
+  // console.log(item);
+  // console.log(itemData);
+  // console.log(itemList);
 
 
 
@@ -58,7 +58,7 @@ const ComicList = ({ title, img, pages, price, description }) => {
         <p className="comicCard_title">{title}</p>
         <p className="comicCard_pages">{pages} páginas</p>
         <p className="comicCard_price">{price}€</p>
-        <button onClick={() => handleClick(title)}> AÑADIR A CESTA</button>
+        <button onClick={() => handleClick(title)} className="addToTrolley"> AÑADIR Al CARRITO </button>
     </div>
     <div className="comicCard descriptionFlex" onClick={() => setFlip(!flip)}>
         <h4>Descripción: </h4>

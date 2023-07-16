@@ -1,12 +1,16 @@
 import { LinkContext } from "../../../context/LinkContext";
+import { SearchContext } from "../../../context/SearchContext"
 import { useContext } from "react";
 import {Link} from "react-router-dom";
 
 const Manga = () => {
 
   const {setLink} = useContext(LinkContext);
+  const { setSearchValue } = useContext(SearchContext)
+
   const handleClick = (name) =>{
-    setLink(name)
+    setLink(name);
+    setSearchValue(name);
   }
 
   return (
@@ -24,7 +28,7 @@ const Manga = () => {
       </div></Link>
       <Link to="/results"><div className="solicitadosCard">
           <h3>ONE PIECE</h3>
-          <img src="/assets/One_piece.jpg" alt="One Piece" onClick={() => handleClick("One")} />
+          <img src="/assets/One_piece.jpg" alt="One Piece" onClick={() => handleClick("One Piece")} />
         </div></Link>
       </div>
     </section>

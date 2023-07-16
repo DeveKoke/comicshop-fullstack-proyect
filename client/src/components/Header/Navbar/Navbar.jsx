@@ -1,16 +1,20 @@
 import { useState, useContext, useEffect } from "react";
 import { LinkContext } from "../../../context/LinkContext";
+import { SearchContext } from "../../../context/SearchContext";
 import { TrolleyContext } from "../../../context/TrolleyContext";
 import {Link} from "react-router-dom";
 
 
 
 const Navbar = () => {
-  const[itemQuantity, setItemQuantity] =  useState(0)
+  const[itemQuantity, setItemQuantity] =  useState(0);
+  const { setSearchValue } = useContext(SearchContext);
+
 
   const {setLink} = useContext(LinkContext);
   const handleClick = (name) =>{
-    setLink(name)
+    setLink(name);
+    setSearchValue(name);
   }
 
 

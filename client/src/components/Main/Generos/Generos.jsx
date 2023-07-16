@@ -1,13 +1,17 @@
 import { LinkContext } from "../../../context/LinkContext";
+import { SearchContext } from "../../../context/SearchContext"
 import { useContext } from "react";
 import {Link} from "react-router-dom";
 
 
 const Generos = () => {
 
+  const { setSearchValue } = useContext(SearchContext)
   const {setLink} = useContext(LinkContext);
+
   const handleClick = (name) =>{
-    setLink(name)
+    setLink(name);
+    setSearchValue(name);
   }
 
   return(
