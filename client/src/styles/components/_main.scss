@@ -1,0 +1,9 @@
+@import './../utils/variables.scss';
+
+
+main{
+    background-color: $main-light-background-color;
+    width: 100%;
+    border-top: grey solid 5px;
+    // padding-top: 1em;
+}

@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Main from './components/Main';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { BrowserRouter } from 'react-router-dom';
+import { SearchContext } from "./context/SearchContext";
+import { LinkContext } from "./context/LinkContext";
+import { TrolleyContext } from './context/TrolleyContext';
+import { useState } from 'react'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const[searchValue, setSearchValue]=useState('');
+  const[link, setLink]=useState('')
+  const [itemList, setItemList] = useState([]) //debe ser un useContext alojado en Main
+
+
+  const searchObj = {
+    searchValue, setSearchValue
+  }
+  const linkObj = {
+    link, setLink
+  }
+  const itemListArr = {
+    itemList, setItemList
+  }
+
+ 
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <BrowserRouter>
+    <SearchContext.Provider value={searchObj} >
+    <LinkContext.Provider value={linkObj} >
+    <TrolleyContext.Provider value={itemListArr} >
+      <Header />
+      <Main />
+    </TrolleyContext.Provider>
+    </LinkContext.Provider>
+    </SearchContext.Provider >
+      <Footer />
+    </BrowserRouter>
     </>
   )
-}
+};
 
-export default App
+export default App;

@@ -1,0 +1,49 @@
+@import './../utils/variables.scss';
+
+
+// footer{
+//     width: 100%;
+//     background-color: $main-orange-color;
+// }
+
+footer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    background-color: $main-orange-color;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: 1.2em;
+    color: white;
+
+     a{
+        text-decoration: none;
+        padding: 5px;
+        color:$main-black-color;
+     }
+     a:hover{
+        color:$second-color-mostaza;
+     }
+     img{
+        max-width: 2.8em;
+        margin: 0 .5em;
+     }
+}
+.followUs{
+    display: flex;
+    flex-direction: column;
+    padding: 1.8em 0;
+}
+.soc-med{
+    display: flex;
+    flex-direction: row;
+    margin: .7em 0;
+}
+
+.comunity, .generalInfo{
+    display: flex;
+    flex-direction: column;
+    padding: 1.8em 0;
+}

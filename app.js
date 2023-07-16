@@ -9,10 +9,12 @@ const port = "3000";
 app.use(express.json()); // Habilitar tipo de dato a recibir
 
 const comicsRoutes = require("./routes/comicsRoutes");
+const ordersRoutes = require("./routes/ordersRoutes");
 
 
 // Rutas
 app.use("/api", comicsRoutes);
+app.use("/orders", ordersRoutes)
 
 
 app.use(error404); // Para ruta no encontrada (404)
@@ -20,3 +22,5 @@ app.use(error404); // Para ruta no encontrada (404)
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
+
+

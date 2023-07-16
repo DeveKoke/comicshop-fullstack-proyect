@@ -1,0 +1,57 @@
+@import './../utils/variables.scss';
+
+.sliderContainer{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    // white-space: nowrap; 
+    overflow-x: scroll;
+    margin: auto ;
+    // background: linear-gradient(180deg,rgb(189, 154, 56) 0%, rgba(140, 105, 34, 0.8) 100%), url(../../../public/assets/4845746.jpg);
+    // background-blend-mode: hard-light;
+    // background-size:  contain;
+    background-color: $main-grey-color;
+}
+.sliderContainer::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+  }
+  
+  .sliderContainer::-webkit-scrollbar-track {
+    background: orange;        /* color of the tracking area */
+  }
+  
+  .sliderContainer::-webkit-scrollbar-thumb {
+    background-color: rgb(91, 91, 156);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid orange;  /* creates padding around scroll thumb */
+  }
+
+.sliderCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $main-color-mostaza ;
+    border-radius: 4px;
+    padding: 0 1.5em;
+    margin: 0 .9em;
+// min-width: 12em;
+    max-width: 14em;
+    img{
+        // max-width: 50%;
+        // min-width: 45%;
+        max-height: 18em;
+    }
+    h3{
+        font-size: 1.2em;
+        text-align:center;
+        font-family: Labrada;
+        font-weight: 500;
+        font-weight: 500;
+    }
+    span{
+        margin-top: 14px;
+        margin-bottom: 9px;
+        font-size: 1.3em;
+        font-family: Labrada;
+    }
+}

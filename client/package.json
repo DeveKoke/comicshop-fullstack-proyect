@@ -10,8 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "i": "^0.3.7",
+    "normalize.css": "^8.0.1",
+    "npm": "^9.8.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-alice-carousel": "^2.7.1",
+    "react-card-flip": "^1.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.45.1",
+    "react-id-swiper": "^4.0.0",
+    "react-router-dom": "^6.14.1",
+    "sass": "^1.63.6",
+    "swiper": "^10.0.4",
+    "uuid": "^9.0.0",
+    "y": "^0.3.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",

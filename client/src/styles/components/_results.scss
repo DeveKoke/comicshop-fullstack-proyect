@@ -1,0 +1,42 @@
+.resultsContainer{
+    width: 100%;
+}
+
+.comicList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background: linear-gradient(180deg,$main-light-background-color 0%, $main-light-background-color 100%), url(../../../public/assets/thunder-bolt-seamless-background_6997-964.jpg);
+    background-blend-mode:   hard-light;
+    background-size:  contain;
+    border-top: grey solid 5px;
+}
+.titleResultsContainer{
+    display: flex;
+    flex-direction: row;
+}
+.imgTitleResults{
+    display: block;
+    margin-top: -9em;
+    margin-left: 1.5em;
+    position: absolute;
+    width: 14rem;
+}
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: .3em;
+    margin-bottom: .4em;
+}
+.arrowsResults{
+    margin: 0 2em;
+    width: 4em;
+}
+
+@media screen and (max-width: 880px){
+    .imgTitleResults{
+        display: none;
+    }
+}
