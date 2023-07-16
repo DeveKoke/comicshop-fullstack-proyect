@@ -17,6 +17,7 @@
     "react-alice-carousel": "^2.7.1",
     "react-card-flip": "^1.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.45.1",
     "react-id-swiper": "^4.0.0",
     "react-router-dom": "^6.14.1",
     "sass": "^1.63.6",

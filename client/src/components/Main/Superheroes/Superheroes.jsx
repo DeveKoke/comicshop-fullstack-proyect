@@ -12,7 +12,7 @@ const Superheroes = () => {
   return (
 
     <section>
-      <h1>MANGA</h1>
+      <h1>SUPERHÉROES</h1>
       <div className="solicitadosWrapper">
         <Link to="/results"><div className="solicitadosCard">
           <h3>MARVEL</h3>
