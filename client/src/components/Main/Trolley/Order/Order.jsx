@@ -84,7 +84,7 @@ const Order = () => {
       <input type="submit" value="REALIZAR PEDIDO" />
     </form>
 
-    {orderSuccess && (<p>Tu pedido se realizó correctamente</p>)}
+    {orderSuccess && (<p className="orderDoneMessage">Tu pedido se realizó correctamente</p>)}
     </>
 
   );

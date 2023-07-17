@@ -18,7 +18,7 @@ const Trolley = () => {
 
   useEffect(() => {
     if(itemList.length>0){
-      const priceList = itemList.map(item => ( parseInt(item.price) ));  
+      const priceList = itemList.map(item => ( parseFloat(item.price) ));  
       setTotal(priceList.reduce((accumulator, currentValue) => accumulator + currentValue, 0));
     }
 }, [itemList])
@@ -26,12 +26,12 @@ const Trolley = () => {
 
   return (
     <section className='mainTrolley'>
-      <h1>TU CESTA</h1>
+      <h1>TU CARRITO</h1>
       <div className='trolleyContainer'>
       {itemList.length > 0 ? (
           <article className="trolleyProducts">
             {printItemList()}
-            <p className='totalPrice'>TOTAL: {total} €</p>
+            <p className='totalPrice'>TOTAL: {total.toFixed(2)} €</p>
           </article>
         ) : (
           <article className='noTrolleyProducts'>
