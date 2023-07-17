@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "jsdoc -c ./jsdoc.json README.md",
     "start": "node app.js",
     "server": "nodemon app.js",
     "client": "npm run dev --prefix client",
@@ -27,7 +28,6 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.0",
-    "jsdoc": "^4.0.2",
     "nodemon": "^3.0.1"
   }
 }
