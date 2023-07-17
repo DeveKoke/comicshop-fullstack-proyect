@@ -59,4 +59,4 @@ The connection between the backend and frontend is done through the configuratio
 For future versions, I plan to implement a hamburger menu for the mobile version. An authentication process for users to make purchases might also be added, which could involve changing or introducing a SQL database.
 Additionally, more sections like a listing of store events by dates are expected to be included in the future.
 
-The above is a summary of a GitHub repository. Here's the translated text and code in a Markdown format.
+
