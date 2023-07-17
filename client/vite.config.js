@@ -10,6 +10,11 @@ export default defineConfig({
       "/orders": "http://localhost:3000",
     },
   },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './tests/setup.js',
+  }
 
 })
 

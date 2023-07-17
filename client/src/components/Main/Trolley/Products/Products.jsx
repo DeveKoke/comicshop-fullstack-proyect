@@ -14,10 +14,11 @@ const Products = ({ title, img, price }) => {
   return (
   
     <div className="productContainer">
-      <img src={img} alt="imagen producto" />
+      <img src={img} alt="imagen producto" className="imgProduct" />
       <p>{title}</p>
       <span>{price} €</span>
-      <button onClick={handleDelete}>ELIMNAR</button>
+      <img src="/assets/delete-cross.png" alt="borrar producto" className="deleteCross" onClick={handleDelete} />
+    
     </div>
     
   
